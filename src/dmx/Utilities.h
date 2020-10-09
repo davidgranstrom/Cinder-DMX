@@ -25,6 +25,8 @@ public:
 	/// Set a color value. Colors occupy three channels, starting with the provided channel. Zero indexed.
 	void setChannelValues(size_t channel, const ci::Color8u &color);
 	void setChannelValues(size_t channel, ci::ivec3 color);
+	/// Set 4 channel color value, starting with the provided channel. Zero indexed.
+	void setChannelValues(size_t channel, ci::ivec4 color);
 
 	const uint8_t* data() const { return _data.data(); }
 	size_t         size() const { return _data.size(); }

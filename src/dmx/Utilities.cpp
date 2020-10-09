@@ -34,3 +34,12 @@ void ColorBuffer::setChannelValues(size_t channel, ci::ivec3 color) {
 	_data.at(channel + 1) = color.g;
 	_data.at(channel + 2) = color.b;
 }
+
+void ColorBuffer::setChannelValues(size_t channel, ci::ivec4 color) {
+	channel = std::min(channel, _data.size() - 4);
+	color = glm::clamp(color, ci::ivec4(0), ci::ivec4(255));
+	_data.at(channel) = color.r;
+	_data.at(channel + 1) = color.g;
+	_data.at(channel + 2) = color.b;
+	_data.at(channel + 3) = color.a;
+}
