@@ -60,6 +60,11 @@ EnttecDevice::EnttecDevice(const std::string &device_name, int device_fps)
 
 EnttecDevice::~EnttecDevice()
 {
+  if (this->onExit != nullptr)
+  {
+    this->onExit();
+    return;
+  }
 	stopLoop();
 	// For now, turn out the lights as the previous implementation did so.
 	// In future, perhaps it is better to let the user specify what to do.

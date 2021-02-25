@@ -66,6 +66,9 @@ public:
 	void applySettings(const Settings &settings);
 	std::future<Settings> loadSettings() const;
 
+  /// Pass a callback to run on exit (override default destructor)
+  std::function<void()> onExit;
+
 private:
 	std::vector<uint8_t>	_message_body;
 	mutable std::mutex		_data_mutex;
